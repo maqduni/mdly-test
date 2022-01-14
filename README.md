@@ -3,7 +3,7 @@ ExpressJS HTTP server that features two endpoints,
 - POST /api/facts/find
 - POST /api/facts/insert
 
-_NOTE - If you want to just run the server locally: do step 1, then skip to the "**Run the application in Docker container**" step below_.
+_NOTE - If you want to just run the server locally: do step 1, then skip to the "**[Run the application in Docker container](#run-the-application-in-docker-container)**" step below_.
 
 ## Installation:
 *NOTE - make sure to use Node v14. Node version is also specified in .nvmrc and package.json*.
