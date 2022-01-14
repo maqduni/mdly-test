@@ -5,7 +5,6 @@ import { errorLogger, errorResponder, failSafeHandler } from './infrastructure/m
 
 // todo: Docker
 // todo: documentation
-// todo: validation
 
 const app = express();
 

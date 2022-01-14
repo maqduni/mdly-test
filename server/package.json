@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "type": "module",
+  "engines": {
+    "node": "^14.0.0",
+    "npm": "^6.0.0"
+  },
   "scripts": {
     "start": "NODE_OPTIONS='--experimental-specifier-resolution=node' node app/main.js",
     "start:dev": "NODE_OPTIONS='--experimental-specifier-resolution=node' nodemon app/main.js",
