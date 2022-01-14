@@ -72,3 +72,33 @@ Content-Type: application/json
         client.assert(response.status === 404, "Response status is not 404");
     });
 %}
+
+###
+POST /api/facts/insert HTTP/1.1
+Host: localhost:3000
+Content-Type: application/json
+
+{
+  "fakt": "BestTVCharacters",
+  "query": ["Dolores", "Host", "Host"]
+}
+> {%
+    client.test("Request executed successfully", function() {
+        client.assert(response.status === 400, "Response status is not 400");
+    });
+%}
+
+###
+POST /api/facts/insert HTTP/1.1
+Host: localhost:3000
+Content-Type: application/json
+
+{
+  "fact": "BestTVCharacters",
+  "query": []
+}
+> {%
+    client.test("Request executed successfully", function() {
+        client.assert(response.status === 400, "Response status is not 400");
+    });
+%}
