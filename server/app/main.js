@@ -3,9 +3,6 @@ import { ConfigService } from './infrastructure/config.service';
 import { RouteService } from './infrastructure/route.service';
 import { errorLogger, errorResponder, failSafeHandler } from './infrastructure/middleware/error-handling.middleware';
 
-// todo: Docker
-// todo: documentation
-
 const app = express();
 
 /*
