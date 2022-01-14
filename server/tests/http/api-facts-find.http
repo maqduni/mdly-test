@@ -1,0 +1,74 @@
+###
+POST /api/facts/find HTTP/1.1
+Host: localhost:3000
+Content-Type: application/json
+
+{
+  "fact": "BestTVCharacters",
+  "query": ["Monk"]
+}
+> {%
+    client.test("Request executed successfully", function() {
+        client.assert(response.status === 200, "Response status is not 200");
+    });
+%}
+
+###
+POST /api/facts/find HTTP/1.1
+Host: localhost:3000
+Content-Type: application/json
+
+{
+  "fact": "BestTVCharacters",
+  "query": ["Logan", "Tom", "Shiv"]
+}
+> {%
+    client.test("Request executed successfully", function() {
+        client.assert(response.status === 404, "Response status is not 404");
+    });
+%}
+
+###
+POST /api/facts/find HTTP/1.1
+Host: localhost:3000
+Content-Type: application/json
+
+{
+  "fact": "BestTVCharacters",
+  "query": ["Logan", "$1", "$2"]
+}
+> {%
+    client.test("Request executed successfully", function() {
+        client.assert(response.status === 200, "Response status is not 200");
+    });
+%}
+
+###
+POST /api/facts/find HTTP/1.1
+Host: localhost:3000
+Content-Type: application/json
+
+{
+  "fact": "BestTVCharacters",
+  "query": ["$1", "$2", "$2"]
+}
+> {%
+    client.test("Request executed successfully", function() {
+        client.assert(response.status === 200, "Response status is not 200");
+    });
+%}
+
+###
+POST /api/facts/find HTTP/1.1
+Host: localhost:3000
+Content-Type: application/json
+
+{
+  "fact": "BestTVCharacters",
+  "query": ["Logan", "$1"]
+}
+> {%
+    client.test("Request executed successfully", function() {
+        client.assert(response.status === 404, "Response status is not 404");
+    });
+%}
