@@ -1,0 +1,28 @@
+{
+  "name": "mdly-test-app-server",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "scripts": {
+    "start": "NODE_OPTIONS='--experimental-specifier-resolution=node' node app/main.js",
+    "start:dev": "NODE_OPTIONS='--experimental-specifier-resolution=node' nodemon app/main.js",
+    "start:debug": "NODE_OPTIONS='--experimental-specifier-resolution=node' nodemon --inspect app/main.js",
+    "test": "jest"
+  },
+  "homepage": "https://github.com/maqduni/mdly-test-app#readme",
+  "dependencies": {
+    "dotenv": "^11.0.0",
+    "express": "^4.17.2",
+    "express-validator": "^6.14.0",
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.16.7",
+    "@babel/preset-env": "^7.16.8",
+    "babel-jest": "^27.4.6",
+    "eslint": "^7.24.0",
+    "eslint-plugin-jest": "^25.3.4",
+    "jest": "^27.4.7",
+    "nodemon": "^2.0.15"
+  }
+}
