@@ -63,7 +63,6 @@ export const FactService = {
   },
 
   matchValueSet (valueSet, querySet) {
-    let setsMatched = true;
     const maskMatches = {
       found: false,
       count: {},
@@ -72,10 +71,7 @@ export const FactService = {
 
     // do the set lengths equal?
     if (querySet.length !== valueSet.length) {
-      setsMatched = false;
-      return {
-        setsMatched,
-      };
+      return { setsMatched: false };
     }
 
     for (let i = 0; i < querySet.length; i++) {
@@ -88,8 +84,7 @@ export const FactService = {
         if (maskMatches.count[queryItem] > 0) {
           // does the previously encountered value match the current value?
           if (maskMatches.values[queryItem] !== value) {
-            setsMatched = false;
-            break;
+            return { setsMatched: false };
           }
 
           maskMatches.count[queryItem] += 1;
@@ -101,14 +96,13 @@ export const FactService = {
       } else {
         // does the current value equal the query item?
         if (value !== queryItem) {
-          setsMatched = false;
-          break;
+          return { setsMatched: false };
         }
       }
     }
 
     return {
-      setsMatched,
+      setsMatched: true,
       maskMatches,
     };
   },
